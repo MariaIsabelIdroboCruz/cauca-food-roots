@@ -121,6 +121,12 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AccessibilityProvider>
+        <a
+          href="#inicio"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-leaf focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded-md focus:font-medium"
+        >
+          Saltar al contenido principal
+        </a>
         <Outlet />
         <AccessibilityPanel />
       </AccessibilityProvider>
