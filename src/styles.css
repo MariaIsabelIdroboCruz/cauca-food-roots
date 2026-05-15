@@ -61,6 +61,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-size: calc(1rem * var(--a11y-text-scale, 1));
   }
   h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 }
@@ -69,4 +70,57 @@
   background-image:
     radial-gradient(circle at 20% 20%, oklch(0.62 0.15 45 / 0.08) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, oklch(0.55 0.13 145 / 0.10) 0%, transparent 50%);
+}
+
+/* ============ Accessibility ============ */
+
+/* Legible font (Atkinson Hyperlegible) */
+html.a11y-font-legible,
+html.a11y-font-legible body,
+html.a11y-font-legible h1,
+html.a11y-font-legible h2,
+html.a11y-font-legible h3,
+html.a11y-font-legible h4,
+html.a11y-font-legible h5,
+html.a11y-font-legible h6,
+html.a11y-font-legible p,
+html.a11y-font-legible span,
+html.a11y-font-legible div,
+html.a11y-font-legible button,
+html.a11y-font-legible a,
+html.a11y-font-legible li {
+  font-family: "Atkinson Hyperlegible", system-ui, sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* High contrast mode */
+html.a11y-contrast {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.05 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.05 0 0);
+  --muted: oklch(0.95 0 0);
+  --muted-foreground: oklch(0.15 0 0);
+  --border: oklch(0.05 0 0);
+  --primary: oklch(0.05 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --leaf: oklch(0.35 0.18 145);
+  --clay: oklch(0.45 0.22 35);
+  --cream: oklch(1 0 0);
+  --earth: oklch(0.05 0 0);
+  --accent: oklch(0.05 0 0);
+  --accent-foreground: oklch(1 0 0);
+}
+
+html.a11y-contrast .slide-bg-grain {
+  background-image: none;
+  background-color: oklch(1 0 0);
+}
+
+html.a11y-contrast * {
+  text-shadow: none !important;
+}
+
+html.a11y-contrast img {
+  filter: contrast(1.15);
 }
