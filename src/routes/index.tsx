@@ -63,17 +63,17 @@ function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-10 py-3">
-        <button onClick={() => go("inicio")} className="flex items-center gap-3" aria-label="Ir al inicio">
-          <img src={logo} alt="Gobernación del Cauca" className="h-9 sm:h-10 w-auto object-contain" />
-          <div className="hidden lg:block border-l border-border/60 pl-3">
-            <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              Política Pública
-            </div>
-            <div className="font-display text-sm font-semibold text-earth leading-tight">
-              Soberanía Alimentaria
-            </div>
-          </div>
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-10 py-2.5 sm:py-3">
+        <button
+          onClick={() => go("inicio")}
+          className="flex items-center gap-3 min-w-0 shrink"
+          aria-label="Ir al inicio — Gobernación del Cauca"
+        >
+          <img
+            src={logo}
+            alt="Gobernación del Cauca · Secretaría de Gobierno"
+            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto max-w-[60vw] sm:max-w-none object-contain shrink-0"
+          />
         </button>
 
         <nav className="hidden md:flex items-center gap-1">
@@ -575,12 +575,13 @@ function Footer() {
   return (
     <footer className="bg-background border-t border-border px-4 sm:px-6 lg:px-10 py-10">
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        <div className="flex items-center gap-3">
-          <img src={logo} alt="Gobernación del Cauca" className="h-10 w-auto object-contain" />
-          <div>
-            <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              Secretaría de Gobierno
-            </div>
+        <div className="flex items-center gap-4">
+          <img
+            src={logo}
+            alt="Gobernación del Cauca · Secretaría de Gobierno"
+            className="h-12 sm:h-14 md:h-16 w-auto max-w-[70vw] object-contain"
+          />
+          <div className="hidden sm:block">
             <div className="font-display text-sm font-semibold text-earth">
               Gobernación del Cauca · 2026
             </div>
