@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { AccessibilityProvider } from "@/contexts/AccessibilityContext";
+import { AccessibilityPanel } from "@/components/AccessibilityPanel";
 
 function NotFoundComponent() {
   return (
@@ -90,6 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -117,7 +120,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <AccessibilityProvider>
+        <Outlet />
+        <AccessibilityPanel />
+      </AccessibilityProvider>
     </QueryClientProvider>
   );
 }
