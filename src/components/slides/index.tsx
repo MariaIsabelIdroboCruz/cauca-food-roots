@@ -3,6 +3,7 @@ import arbol from "@/assets/arbol-problemas.jpeg";
 import hero from "@/assets/hero-cauca.jpg";
 import crops from "@/assets/crops-cauca.jpg";
 import { Sprout, Wheat, Users, Leaf, HeartPulse, Scale, FileText, Cpu } from "lucide-react";
+import { useA11y } from "@/contexts/AccessibilityContext";
 
 /* ---------------- TITLE ---------------- */
 export function TitleSlide() {
@@ -144,6 +145,7 @@ export function TeamSlide() {
 
 /* ---------------- VIDEO ---------------- */
 export function VideoSlide({ active }: { active: boolean }) {
+  const { captions } = useA11y();
   return (
     <SlideShell variant="dark" eyebrow="02 · Video Introductorio">
       <div className="flex h-full flex-col px-16 md:px-24 pt-28 pb-12">
@@ -162,7 +164,23 @@ export function VideoSlide({ active }: { active: boolean }) {
           </div>
         </div>
         <div className="flex-1 overflow-hidden rounded-3xl border border-cream/15 bg-black shadow-2xl ring-1 ring-cream/5">
-          {active && <video src="/video.mp4" controls className="h-full w-full object-contain" />}
+          {active && (
+            <video
+              key={captions ? "cc-on" : "cc-off"}
+              src="/video.mp4"
+              controls
+              crossOrigin="anonymous"
+              className="h-full w-full object-contain"
+            >
+              <track
+                kind="subtitles"
+                src="/subtitles.vtt"
+                srcLang="es"
+                label="Español"
+                default={captions}
+              />
+            </video>
+          )}
         </div>
       </div>
     </SlideShell>
