@@ -109,16 +109,19 @@ export function TeamSlide() {
         <div className="grid flex-1 grid-cols-3 grid-rows-2 gap-4">
           {teamGroups.map((g) => {
             const Icon = g.icon;
-            const dot = g.accent === "leaf" ? "bg-leaf text-leaf" : "bg-clay text-clay";
+            const isLeaf = g.accent === "leaf";
+            const bgDot = isLeaf ? "bg-leaf" : "bg-clay";
+            const textDot = isLeaf ? "text-leaf" : "text-clay";
+            const bgSoft = isLeaf ? "bg-leaf/15" : "bg-clay/15";
             return (
               <div
                 key={g.title}
                 className="group relative rounded-2xl border border-border bg-card/80 backdrop-blur p-5 flex flex-col overflow-hidden hover:shadow-lg transition-shadow"
               >
-                <div className={`absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-10 ${dot.split(" ")[0]}`} />
+                <div className={`absolute -top-8 -right-8 h-24 w-24 rounded-full opacity-10 ${bgDot}`} />
                 <div className="flex items-center gap-3 mb-4 relative">
-                  <div className={`flex h-9 w-9 items-center justify-center rounded-lg bg-${g.accent}/15`}>
-                    <Icon className={`h-4.5 w-4.5 ${dot.split(" ")[1]}`} />
+                  <div className={`flex h-9 w-9 items-center justify-center rounded-lg ${bgSoft}`}>
+                    <Icon className={`h-5 w-5 ${textDot}`} />
                   </div>
                   <h3 className="font-display text-lg font-semibold text-earth">{g.title}</h3>
                 </div>
