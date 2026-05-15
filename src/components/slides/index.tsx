@@ -32,30 +32,30 @@ export function TitleSlide() {
 }
 
 const teamGroups = [
-  { title: "Dirección", color: "leaf", people: [
+  { title: "Dirección", dot: "bg-leaf", people: [
     { role: "Sub Secretaria", name: "Jojana Ibarguen" },
     { role: "Apoyo", name: "Isabel Alape" },
   ]},
-  { title: "Coordinación & Jurídico", color: "clay", people: [
+  { title: "Coordinación & Jurídico", dot: "bg-clay", people: [
     { role: "Coordinador", name: "Víctor Gómez" },
     { role: "Politólogo", name: "Víctor Campo" },
     { role: "Abogada", name: "Valentina Quintero" },
     { role: "Abogado", name: "Jeison Ospina" },
   ]},
-  { title: "Equipo Social", color: "leaf", people: [
+  { title: "Equipo Social", dot: "bg-leaf", people: [
     { role: "", name: "Catalina Burbano" },
     { role: "", name: "Mónica Daza" },
     { role: "", name: "Marly Coque" },
   ]},
-  { title: "Ingeniería de Sistemas", color: "clay", people: [
+  { title: "Ingeniería de Sistemas", dot: "bg-clay", people: [
     { role: "", name: "Mayerly Arciniegas" },
     { role: "", name: "Isabel Idrobo" },
   ]},
-  { title: "Equipo de Salud", color: "leaf", people: [
+  { title: "Equipo de Salud", dot: "bg-leaf", people: [
     { role: "", name: "Arbey Cajiao" },
     { role: "", name: "Yisela Meneses" },
   ]},
-  { title: "Equipo Documental", color: "clay", people: [
+  { title: "Equipo Documental", dot: "bg-clay", people: [
     { role: "", name: "Alejandra Morillo" },
     { role: "", name: "Evidale Mamian" },
   ]},
@@ -75,7 +75,7 @@ export function TeamSlide() {
           {teamGroups.map((g) => (
             <div key={g.title} className="rounded-2xl border border-border bg-card/70 backdrop-blur p-5 flex flex-col">
               <div className="flex items-center gap-2 mb-4">
-                <span className={`h-2.5 w-2.5 rounded-full bg-${g.color}`} />
+                <span className={`h-2.5 w-2.5 rounded-full ${g.dot}`} />
                 <h3 className="font-display text-lg font-semibold text-earth">{g.title}</h3>
               </div>
               <ul className="space-y-2.5">
