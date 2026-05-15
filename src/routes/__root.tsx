@@ -9,8 +9,6 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import { AccessibilityProvider } from "@/contexts/AccessibilityContext";
-import { AccessibilityPanel } from "@/components/AccessibilityPanel";
 
 function NotFoundComponent() {
   return (
@@ -77,18 +75,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Primer Taller — Política Pública de Seguridad y Soberanía Alimentaria del Cauca" },
       { name: "description", content: "Presentación del primer taller de política pública de seguridad y soberanía alimentaria en el departamento del Cauca." },
       { name: "author", content: "Gobernación del Cauca" },
-      { property: "og:title", content: "Primer Taller — Soberanía Alimentaria del Cauca" },
-      { property: "og:description", content: "Construyendo política pública con la comunidad." },
+      { property: "og:title", content: "Primer Taller — Política Pública de Seguridad y Soberanía Alimentaria del Cauca" },
+      { property: "og:description", content: "Presentación del primer taller de política pública de seguridad y soberanía alimentaria en el departamento del Cauca." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@CaucaGob" },
+      { name: "twitter:title", content: "Primer Taller — Política Pública de Seguridad y Soberanía Alimentaria del Cauca" },
+      { name: "twitter:description", content: "Presentación del primer taller de política pública de seguridad y soberanía alimentaria en el departamento del Cauca." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d7499717-99b2-4ec7-ad43-18fb9cf131ad/id-preview-e4013e0b--7816dbc6-a110-40bc-93ce-87030cf59ad0.lovable.app-1778856149575.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d7499717-99b2-4ec7-ad43-18fb9cf131ad/id-preview-e4013e0b--7816dbc6-a110-40bc-93ce-87030cf59ad0.lovable.app-1778856149575.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -116,10 +117,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AccessibilityProvider>
-        <Outlet />
-        <AccessibilityPanel />
-      </AccessibilityProvider>
+      <Outlet />
     </QueryClientProvider>
   );
 }
